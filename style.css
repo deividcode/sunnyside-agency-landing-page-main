@@ -1,0 +1,621 @@
+/*=============== GOOGLE FONTS ===============*/
+@font-face{
+  font-family: "Barlow";
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url("/fonts/Barlow-SemiBold.ttf");
+  font-display: swap;
+
+}
+
+@font-face{
+  font-family: "Fraunces";
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url("/fonts/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf");
+  font-weight:700 900;
+  
+  font-display: swap;
+     
+}
+
+/*=============== VARIABLES CSS ===============*/
+:root { 
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --soft-red: hsl(7, 99%, 70%);
+  --yellow: hsl(51, 100%, 49%);
+
+  --dark-desaturated-cyan: hsl(167, 40%, 24%);
+  --dark-blue: hsl(198, 62%, 26%);
+  --dark-moderate-cyan: hsl(168, 34%, 41%);
+
+  --very-dark-desaturated-blue: hsl(212, 27%, 19%);
+  --very-dark-grayish-blue: hsl(213, 9%, 39%);
+  --dark-grayish-blue: hsl(232, 10%, 55%);
+  --grayish-blue: hsl(210, 4%, 67%);
+
+  --white: hsl(0, 0%, 100%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Poppins', sans-serif;
+  --biggest-font-size: 2.25rem;
+
+  --h1-font-size: 1.5rem; 
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-semibold: 500;
+  --font-bold: 700;
+  --font-black: 900
+
+}
+
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {  
+}
+
+h1 { 
+  font-size: 2.1em;
+  margin-block-end: 1em;
+  font-family: "Fraunces";
+}
+
+h2{
+  margin-block-end: 0.8em;
+
+  font-size: 1.6em;
+  font-family: "Fraunces";
+  font-weight: 900;
+ 
+}
+
+p{  
+  line-height: 1.4;
+  margin-block-end: 1em;
+  font-family: "Barlow";
+}
+
+a{
+  text-decoration: none;
+}
+
+img{
+  max-inline-size: 100%;  
+  height: auto;
+}
+
+picture img{
+  width: 100%;
+  height: 100%;
+
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1090px) {
+  h2{
+    font-size: 2.2em;
+  }
+}
+
+details[open] + .menu{
+  animation: openMenu 0.35s linear forwards;    
+}
+
+summary {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: block;
+}
+
+
+/*=============== HEADER & NAV ===============*/
+
+.header__container{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  height: 3.4em;
+  padding: 0 clamp(25px, 20px + 3vw, 50px);
+  
+}
+
+.header__marca{
+  width: 6.8em;  
+}
+
+.menu-icon{
+  width: 1.7em;
+}
+
+.menu__link{ 
+  font-family: 'Barlow';
+}
+
+.menu__link:last-child{
+  font-family: "Fraunces";
+}
+
+/*=============== HERO ===============*/
+
+.hero{
+  position: relative;
+  height: 100vh;
+}
+
+.hero__backgroundImage{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  z-index: -1;
+}
+
+.hero__backgroundImage img{
+  width: 100%;
+  height: 100%;
+}
+
+.hero__text{
+  display: grid;
+  place-items: center;
+
+  padding-top: 6.5em;
+  padding-left: 1.3em;
+  padding-right: 1.3em;
+  
+  text-align: center;
+}
+
+.hero__title{
+  color: var(--white);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 2.5em;
+}
+
+.hero__arrow{
+  width: 38px;
+  height: 132px;
+}
+
+/*=============== INFO1, INFO2 and INFO3 ===============*/
+
+/* INFO1 */
+.info1, .info2{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  
+}
+
+.info1__text, .info2__text{   
+  width: clamp(275px, 260px + 16vw, 440px);
+  order: 2;
+
+  padding: 3em 1.5em;
+  margin: auto;
+
+  text-align: center;
+}
+
+.info1__text p, .info2__text p{
+  color: var(--very-dark-grayish-blue);
+}
+
+
+/* INFO3 */
+
+.info3{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+}
+
+.info3__block1, .info3__block2{
+  position: relative;
+  max-height: 500px;
+}
+
+.info3__text{ 
+  position: absolute;
+  bottom: 0;
+
+  padding: 2.2em 1.2em;
+
+  text-align: center;
+}
+
+.info3__block1 .info3__text{
+  color: var(--dark-desaturated-cyan);
+}
+
+.info3__block2 .info3__text{
+  color: var(--dark-blue);  
+}
+
+.info3__backgroundImage{
+  width: 100%;
+  height: 100%;
+}
+
+
+/*=============== TESTIMONIALS ===============*/
+
+.testimonials{
+  padding: 2.8em 1.2em;
+}
+
+.testimonials h3{ 
+  margin-block-end: 2em;
+
+  color: var(--grayish-blue);
+  font-size: 0.9em;
+  font-family: 'Fraunces';
+  font-weight: 700;
+  text-align: center;
+
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.testimonial{
+  display: grid;
+  justify-items: center;
+
+  max-width: 400px;
+
+  text-align: center;
+
+}
+
+.testimonials__container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 4em;
+  justify-items: center;
+  
+  padding-top: 2.5em;
+}
+
+.testimonial__image{
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 1.6em;
+}
+
+.testimonial__comment{
+  color: var(--very-dark-grayish-blue);
+  margin-block-end: 1.6em;
+}
+
+.testimonial__name{
+  font-family: 'Fraunces';
+  font-weight: 900;
+  margin-bottom: 0.6em;
+}
+
+.testimonial__profession{
+  color: var(--grayish-blue);
+  font-family: 'Barlow';
+  font-size: 0.8em;
+}
+
+
+/*=============== GALLERY ===============*/
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 50%);
+}
+
+.gallery__image img{
+  height: 100%;
+}
+
+
+/*=============== FOOTER ===============*/
+
+.footer{
+  display: grid;
+  place-items: center;
+  gap: 1.8em;
+  
+  padding: 4em 1.5em;  
+  background-color: hsl(168deg 50% 63%);
+} 
+
+.footer__marca svg path{
+  fill: hsl(167, 40%, 24%);
+}
+
+.footer__menu{
+  display: flex;
+  gap: 3.5em;
+}
+
+.footer__menu-link{
+  color: hsl(168deg 35% 37%);
+
+  font-family: 'Barlow';
+  font-size: 0.92em;
+  transition: color 0.3s;
+}
+
+.footer__menu-link:hover{
+  color: var(--white);
+}
+
+.footer__socialMedia{
+  display: flex;
+  gap: 1.6em;
+  margin-top: 3.6em;
+}
+
+.footer__socialMedia a:hover svg path{
+  fill: var(--white);
+  transition: fill 0.3s;
+}
+
+
+
+/*=============== BUTTON ===============*/
+
+.btn-primary, .btn-secundary{
+  position: relative;
+  display: inline-block;
+  margin-top: 1em;
+  font-family: "Fraunces";
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 900;
+}
+
+.btn-primary:before, .btn-secundary:before{
+  content: "";
+  display: block;
+
+  position: absolute;
+  right: -5px;
+  bottom: -2px;
+
+  width: 110%;
+  height: 7px;
+
+  border-radius: 15px;
+
+  z-index: -1;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+.btn-primary:before{
+  background-color: var(--yellow);
+}
+
+.btn-secundary:before{
+  background-color: var(--soft-red);
+}
+
+.btn-primary:hover:before{
+  opacity: 1;
+}
+
+.btn-secundary:hover:before{
+  opacity: 1;
+}
+
+
+/*=============== KEYFRAMES ===============*/
+
+@keyframes openMenu {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes closeMenu {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }  
+  50% {
+    opacity: 0.5;
+  }
+  
+  100% {
+    opacity: 0;
+    visibility: hidden; 
+  }
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+
+/* @MediaQueries Menu-Mobile*/  
+@media screen and (max-width: 799px){
+ 
+  .menu{
+    position: absolute;
+    top: 16%;
+    right: 8%;
+
+    display: grid;
+    justify-content: center;
+    gap: 2em;
+    
+    width: 86vw;
+    height: 52vh;
+    max-width: 86vw;
+
+    padding: 2em 1em;
+
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 2px;
+    background-color: var(--white); 
+    opacity: 0;
+
+    animation: closeMenu 0.35s linear forwards;    
+
+  }
+
+  .menu:before{
+    content: "";
+
+    position: absolute;
+    top: -16px;
+    right: 0px;
+
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+   
+    clip-path: polygon(100% 0, 28% 50%, 100% 100%);
+  }
+
+  .menu__link{
+
+    color: var(--very-dark-grayish-blue);
+    font-family: "Barlow";
+    font-weight: 600;
+  }
+
+  .menu__link:last-child{
+    height: 52px;
+    
+    padding: 1em 2em;
+    color: #202020;
+    border-radius: 28px;
+    background-color: var(--yellow);
+  }
+    
+}
+
+/* @MediaQueries Menu-Mobile*/  
+@media screen and (min-width: 799px){
+
+  .iconmenu{
+    display: none;
+  }
+
+  .menu__link{
+    margin-right: 2em;
+    color: var(--white);    
+  }
+
+  .menu__link:last-child{
+    padding: 0.8em 1.3em;
+
+    font-family: "Fraunces";
+    color: #202020;
+    font-size: 0.92en;
+    
+    border-radius: 28px;
+    background-color: var(--white);
+
+    transition: background-color 0.3s;
+  }
+
+  .menu__link:last-child:hover{
+    background-color: hsl(0deg 0% 100% / 38%);
+    color: var(--white);
+  }
+
+}
+
+
+/* For medium devices */
+@media screen and (min-width: 640px){
+
+  .info1__text, .info2__text {
+    width: initial;
+    max-width: 470px;
+    padding: 3em 2.2em;
+    text-align: start;
+
+    order: initial;
+  }
+
+  .info1__image, .info2__image{
+    max-height: 370px;
+  }
+
+  .info3__block1, .info3__block2{
+    display: flex;
+    justify-content: center;
+  }
+
+  .info3__text, .info3__text{
+    max-width: 360px;
+  }
+
+  .testimonials{
+    padding: 2.8em 3em;
+  }
+
+  .gallery{
+    grid-template-columns: repeat(auto-fit, 25%);
+  }
+
+}
+
+/* For large devices */
+@media screen and (min-width: 1090px){ 
+  
+  .hero__title{  
+    font-size: 2.85em;
+  }
+
+  .info1__image, .info2__image {
+    max-height: 450px;
+  }
+
+  .testimonials {
+    padding: 8.5em 3em;
+  }
+
+  .testimonials h3 {
+    margin-block-end: 3em;
+  }
+
+  .testimonial{
+    max-width: 325px;
+  }
+
+  .gallery__image {
+    max-height: 450px;
+  }
+
+  .footer__menu-link {    
+    font-size: 1.1em;
+  }
+
+}
+
+/* For 2K & 4K resolutions */
+@media screen and (max-width: 2023px){    
+}
